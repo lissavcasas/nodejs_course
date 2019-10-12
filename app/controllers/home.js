@@ -4,7 +4,8 @@ const homeController =  (server) => {
   server.route('/')
   
   .get((req, res) => {
-    res.send('Hello, from Node');
+   /*  res.send('Hello, from Node'); */
+   res.render('index'); //render method shows the template in the browser
   });
 };
 

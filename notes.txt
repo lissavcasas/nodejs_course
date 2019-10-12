@@ -5,4 +5,9 @@ Core Node: Modules by default
 - querystring: Modulo para parsear una cadena a un objeto en JavaScript
 - path: Permite manipular la ruta a cualquier archivo de nuestro sitema local
 
-
+Motores de templates:
+Es la forma de separar la logica del negocio de la app del codigo html, como la logica de la presentacion
+- Mustache: Se considera la base para crear templates digitales de Js
+- Handlebars: Es muy popular y esta basado en mustache
+- Jade: El mas popular y viene por defecto al inicar un proyecto con express
+- Swig : Es un motor de templates de Js
