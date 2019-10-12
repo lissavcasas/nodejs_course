@@ -1,0 +1,8 @@
+Core Node: Modules by default
+- fs (file system): Modulo para realizar operaciones con nuestro sistema de archivos local.
+- http: Modulo màs basico para crear servidores de aplicaciones web
+- events: Permite crear administradores de eventos
+- querystring: Modulo para parsear una cadena a un objeto en JavaScript
+- path: Permite manipular la ruta a cualquier archivo de nuestro sitema local
+
+
