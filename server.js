@@ -1,17 +1,9 @@
-const http = require('http');
+const express = require('express');
+const server = express();
+const homeController = require('./app/controllers/home');
 
-const myRequest = (req, res) => {
-  res.writeHead(200, {
-    'Content-Type': 'text/html' //write header html
-  });
-  if (req.url === '/') {
-    res.end('Hello World! :)'); 
-  }  
-  if (req.url === '/about') {
-    res.end('This is the About'); 
-  }
-};
+homeController(server);
 
-const server = http.createServer(myRequest).listen(3000); 
-
+//Set the port
+server.listen(8000);
 
