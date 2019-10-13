@@ -8,6 +8,9 @@ server.engine('html', swig.renderFile);
 server.set('view engine', 'html'); //motor de vistas de html
 server.set('views', __dirname+'/app/views'); //save the files
 
+//Static files
+server.use(express.static('./public'));
+
 homeController(server);
 
 //Set the port
