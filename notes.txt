@@ -1,13 +1,71 @@
-Core Node: Modules by default
+** Core Node: Modules by default **
 - fs (file system): Modulo para realizar operaciones con nuestro sistema de archivos local.
 - http: Modulo màs basico para crear servidores de aplicaciones web
 - events: Permite crear administradores de eventos
 - querystring: Modulo para parsear una cadena a un objeto en JavaScript
 - path: Permite manipular la ruta a cualquier archivo de nuestro sitema local
 
-Motores de templates:
+** Motores de templates **
 Es la forma de separar la logica del negocio de la app del codigo html, como la logica de la presentacion
 - Mustache: Se considera la base para crear templates digitales de Js
 - Handlebars: Es muy popular y esta basado en mustache
 - Jade: El mas popular y viene por defecto al inicar un proyecto con express
 - Swig : Es un motor de templates de Js
+
+** Swig **  Es muy similar a como funciona en Django
+
+## VARIABLES
+Las variables se envian desde el controlador:
+
+<p> Bienvenido {{ username }} </p>
+
+res.render('template', {username: 'meli'});
+
+## TAGS o etiquetas
+{% %}
+Son más completos que las variables. 
+Algunos crean texto de salida y un poco de flujo de control, mediante  bucles o logica.
+
+--> FOR: 
+- Template:
+<ul>
+ {% for persona in personas %}
+    <li>{ {persona }}</li>
+  {% endfor %} 
+</ul>
+
+- En el controlador debemos enviar la lista de personas en una variable:
+personas = ['mari','meli','marimeli']
+res.render('template', {personas: personas});
+
+--> IF: Sentencia condicional que permite realizar logica dentro de los templates
+{% if personas %} verifica si hay personas y que no este vacia
+{% else %} caso contrario, se le envia lo que esté en el else
+
+- En el controlador debemos enviar la lista de personas vacia:
+personas = []
+res.render('template', {personas: personas});
+
+## Herencia de templates: Es la parte mas poderosa.
+Permite construir un template base que contenga todos los elementos comunes en donde definimos bloques
+que podran ser sobreescritos en los templates hijos.
+
+<title>{% block title %}  {% endblock %}</title>
+<h1>Ejemplo</h1>
+{% block content %} {% endblock %}
+{% block footer%}
+<hr>
+<p>Thanks for visiting mysite </p>
+{% endblock %}
+
+Podemos heredar el doc en cualquier otro, usando el tag EXTENDS
+
+{ % extends 'base.html' % }
+{ % block title % } Node.js Course {% endblock %}
+{% block content %}
+<p>This is the content </p>
+{ % endblock % }
+
+
+Los archivos estaticos se guardan en public, en un amnbiente de desarrollo.
+En produccion: Los archivos estaticos nunca se sirven dentro del servidor donde esta el proyecto
